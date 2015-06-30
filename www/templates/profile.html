@@ -1,0 +1,157 @@
+<ion-view view-title="Profil d'utilisateur">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('{{url}}{{cheminPhoto}}{{utilisateur.photo.cheminPhoto}}');">
+            <div class="content" >
+                <div class="avatar" style="background-image: url('{{url}}{{cheminPhoto}}{{utilisateur.photo.cheminPhoto}}');"></div>
+                <h3><a class="light">{{utilisateur.prenom}} {{utilisateur.nom[0]}}</a></h3>
+                <h4 class="light">0 Avis</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref="app.activity" class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Activité
+            </a>
+            <a ui-sref="app.friends" class="tab-item">
+                <i class="icon ion-android-people"></i> Ami
+            </a>
+            <a ui-sref="app.gallery" class="tab-item">
+                <i class="icon ion-images"></i> Produits
+            </a>
+        </div>
+        <!--<h4 class="content padding double-padding-x">Following</h4>
+        <div class="list animate-fade-slide-in-right">
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="../img/jon-snow.jpg">
+                <h2>Jon Snow</h2>
+                <p>Da illest illegitimate</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="../img/sansa.jpg">
+                <h2>Sansa Stark</h2>
+                <p>&amp; Joffrey <strike>sitting</strike> sat in a tree</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="../img/tyrion.jpg">
+                <h2>Tyrion Lannister</h2>
+                <p>B.A.M.F. imp</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+        </div>-->
+
+
+        <div>
+            <md-content class="md-padding">
+                <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                    <md-tab label="<i style='font-size: 40px;' class='md-raised md-warn icon ion-archive'> </i>">
+                        <md-content class="md-padding">
+                            <div class="list half" ng-repeat="lesarticles in articles">
+                                <div  ng-repeat="article in lesarticles.slice(0,(lesarticles.length/2))"  ng-controller="ArticlesController" class="card card-gallery item item-text-wrap" >
+                                    <div ui-sref="app.articledetails({article:'{{article.idArticle}}'})" class="ink dark-bg" >
+                                        <h2>{{article.TITRE}}</h2>
+                                        <img  class="full-image" ng-src="{{url}}{{cheminImage}}{{article.images[0].cheminImage}}">
+                                    </div>
+                                    <div class="item tabs tabs-secondary tabs-icon-left">
+                                        <a class="tab-item  ">
+                                            <span class="price assertive">{{article.prix}} FCFA</span>
+
+                                        </a>
+                                        <a class="tab-item  positive-900">
+                                            <i class="icon ion-eye"></i>
+                                            <b>{{article.nombreDeVue}}</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list half" ng-repeat="lesarticles in articles">
+                                <div  ng-repeat="article in lesarticles.slice((lesarticles.length/2),lesarticles.length)" ng-controller="ArticlesController" class="card card-gallery item item-text-wrap">
+                                    <div  ui-sref="app.articledetails({article:'{{article.idArticle}}'})" class="ink dark-bg">
+                                        <h2>{{article.titre}}</h2>
+                                        <img  class="full-image" ng-src="{{url}}{{cheminImage}}{{article.images[0].cheminImage}}">
+                                    </div>
+                                    <div class="item tabs tabs-secondary tabs-icon-left">
+                                        <a class="tab-item  ">
+                                            <span class="price assertive">{{article.prix}} FCFA</span>
+
+                                        </a>
+                                        <a class="tab-item positive-900 ">
+                                            <i class="icon ion-eye"></i>
+                                            <b>{{article.nombreDeVue}}</b>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="<i style='font-size: 40px;' class='md-raised md-warn icon ion-flag'></i>">
+                        <md-content class="md-padding">
+                            <!--<div class="github-fork-ribbon-wrapper right">
+                                <div class="github-fork-ribbon">
+                                    <a href="https://github.com/simonwhitaker/github-fork-ribbon-css">Fork me on GitHub</a>
+                                </div>
+                            </div>-->
+                            <div class="list half" ng-repeat="lesarticles in articlesvendu">
+                                <div  ng-repeat="article in lesarticles.slice(0,(lesarticles.length/2))"  ng-controller="ArticlesController" class=" card card-gallery item item-text-wrap" >
+                                    <div ui-sref="app.articledetails({article:'{{article.idArticle}}'})" class="ink dark-bg" >
+                                        <div class="github-fork-ribbon">
+                                            <a href="https://github.com/simonwhitaker/github-fork-ribbon-css">Fork me on GitHub</a>
+                                        </div>
+                                        <h2>{{article.titre}}</h2>
+                                        <img  class="full-image ribbon_banner" ng-src="{{url}}{{cheminImage}}{{article.images[0].cheminImage}}">
+                                        <div class=>Vendu</div>
+                                    </div>
+                                    <div class="item tabs tabs-secondary tabs-icon-left">
+                                        <a class="tab-item  ">
+                                            <span class="price assertive">{{article.prix}} FCFA</span>
+
+                                        </a>
+                                        <a class="tab-item  positive-900">
+                                            <i class="icon ion-eye"></i>
+                                            <b>{{article.nombreDeVue}}</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list half" ng-repeat="lesarticles in articlesvendu">
+                                <div  ng-repeat="article in lesarticles.slice((lesarticles.length/2),lesarticles.length)" ng-controller="ArticlesController" class="card card-gallery item item-text-wrap">
+                                    <div  ui-sref="app.articledetails({article:'{{article.idArticle}}'})" class="ink dark-bg">
+                                        <h2>{{article.titre}}</h2>
+                                        <img  class="full-image" ng-src="{{url}}{{cheminImage}}{{article.images[0].cheminImage}}">
+                                    </div>
+                                    <div class="item tabs tabs-secondary tabs-icon-left">
+                                        <a class="tab-item  ">
+                                            <span class="price assertive">{{article.prix}} FCFA</span>
+
+                                        </a>
+                                        <a class="tab-item positive-900 ">
+                                            <i class="icon ion-eye"></i>
+                                            <b>{{article.nombreDeVue}}</b>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="<i style='font-size: 40px;' class='md-raised md-warn ion-star'></i>">
+                        <md-content class="md-padding">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+                            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                        </md-content>
+                    </md-tab>
+
+                </md-tabs>
+            </md-content>
+        </div>
+    </ion-content>
+
+
+    <a ng-show="showEdit" ui-sref="app.editprofile">
+
+        <md-button class="md-warn md-raised md-hue-2 md-fab md-fab-bottom-right ion-edit">
+        </md-button>
+    </a>
+</ion-view>

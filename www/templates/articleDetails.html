@@ -1,0 +1,130 @@
+<ion-view view-title="Buyandsellam">
+
+    <ion-content class="article-body" >
+        <div >
+            <div ng-repeat="article in article">
+                <ion-slide-box  show-pager="true" auto-play="true" does-continue="true" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide  ng-repeat="image in article.images">
+                        <img class="image" ng-src="{{url}}{{cheminImage}}{{image.cheminImage}}">
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+        </div>
+        <div class="card" >
+            <div class="item item-text-wrap" >
+                <div class="item tabs tabs-secondary tabs-icon-left">
+
+                    <md-button ng-click="chat($event)" class="md-raised md-primary">  <i class="icon ion-chatbubble"></i>
+                        Chat</md-button>
+                    <md-button ng-click="contrOffre($event)" class="md-raised balanced-900-bg">  <i class="icon ion-ios-pricetags"></i>
+                       Offre</md-button>
+                    <md-button ng-click="jachete($event)" class="md-raised md-warn">  <i class="icon ion-bag"></i>
+                        J'achète</md-button>
+                    <!--<a class="tab-item" href="#">
+                        <i class="icon ion-chatbox"></i>
+                        Comment
+                    </a>-->
+
+                   <!-- <a class="tab-item">
+                        <i class="icon ion-share"></i>
+                        Paratger
+                    </a>-->
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-text-wrap" ng-repeat="art in article">
+                <span class="badge badge-assertive price-details">{{art.prix}} FCFA</span><br/>
+                <p class="titre-article">{{art.titre}}</p>
+                <p class="desc-article">
+                    {{art.details}}
+                </p>
+            </div>
+        </div>
+        <div class="card" >
+            <div class="item item-text-wrap">
+                <div class="item tabs tabs-secondary tabs-icon-left" ng-repeat="art in article">
+                    <a ui-sref="app.profile({utilisateur:'{{art.utilisateur.id}}'})" class="ink item item-avatar-left item-icon-right">
+                        <img  ng-src="{{url}}{{cheminPhoto}}{{art.photo.cheminPhoto}}">
+                        <h2>{{art.utilisateur.prenom}} {{art.utilisateur.nom[0]}}<br/>0 avis</h2>
+
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-text-wrap" >
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" ng-click="shareFacebook()">
+                        <i class="icon ion-social-facebook positive"></i>
+                    </a>
+                    <a class="tab-item" ng-click="shareTwitter()">
+                        <i class="icon ion-social-twitter calm"></i>
+                    </a>
+                    <!--<a class="tab-item" ng-click="shareGooglePlus()">
+                        <i class="icon ion-social-googleplus assertive"></i>
+                    </a>-->
+                    <a class="tab-item" ng-click="shareMail()">
+                        <i class="icon ion-android-mail royal"></i>
+                    </a>
+                    <a class="tab-item" ng-click="shareSMS()">
+                        <i class="icon ion-android-textsms dark"></i>
+                    </a>
+                    <a class="tab-item" ng-click="shareWhatsapp()">
+                        <i class="icon ion-social-whatsapp balanced"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
+<script type="text/ng-template" id="contreOffre.html">
+    <md-dialog >
+        <md-dialog-content class="sticky-container">
+            <md-subheader class="assertive-900">CONTRE-OFFRE</md-subheader>
+            <md-input-container>
+                <input required type="number" step="any" name="rate" ng-model="contreoffre.prix">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Ajouter un commentaire</label>
+                <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+            </md-input-container>
+            <div >
+                <md-button ng-click="suviant()" class="md-primary">
+                   Suivant
+                </md-button>
+            </div>
+            <div >
+                <md-button ng-click="close()" class="md-primary" style="float: right">
+                    Annuler
+                </md-button>
+            </div>
+        </md-dialog-content>
+    </md-dialog>
+</script>
+<script type="text/ng-template" id="jachete.html">
+    <md-dialog >
+        <md-dialog-content class="sticky-container">
+            <md-subheader class="assertive-900">J'achète</md-subheader>
+            <md-input-container flex>
+                <label>Ajouter un commentaire</label>
+                <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+            </md-input-container>
+
+            <div >
+                <md-button ng-click="suivant()" class="md-primary">
+                    Continuer
+                </md-button>
+            </div>
+            <div >
+                <md-button ng-click="close()" class="md-primary" style="float: right">
+                    Annuler
+                </md-button>
+            </div>
+        </md-dialog-content>
+    </md-dialog>
+</script>
+

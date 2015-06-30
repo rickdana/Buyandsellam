@@ -1,0 +1,87 @@
+<ion-view view-title="BuyAndSellam">
+    <ion-nav-buttons side="right">
+        <button ui-sref="app.filtres" class="button button-icon button-clear ion-android-search">
+        </button>
+        <md-menu md-offset="0 -1">
+            <md-button style="margin-top: -10px" class="button button-icon button-clear ion-android-more-vertical" ng-click="$mdOpenMenu()">
+            </md-button>
+            <md-menu-content width="2">
+                <md-menu-item >
+                    <md-button ng-click="reverse=false;order('prix', false)"> <span md-menu-align-target>Trier par prix</span></md-button>
+                </md-menu-item>
+                <md-menu-item >
+                    <md-button ng-click="reverse=false;order('dateAjout', false)"> <span md-menu-align-target>Trier par date</span></md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </ion-nav-buttons>
+    <div  ng-show="articles.length!=0" class="bar bar-subheader has-subheader" style="margin-bottom: 70px">
+        <span class="title italic" style="font-size: 12px"><i>Chargement des produits à 1 kilomètre de vous </i></span>
+    </div>
+
+    <div ng-show="article.length==0">
+
+    </div>
+
+    <ion-content  class="has-subheader animate-fade-slide-in" menu-close>
+        <ion-refresher  on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list>
+            <div class="list half" >
+                <div  ng-repeat="article in articles.slice(0,(articles.length/2))"   ng-controller="ArticlesController" class="card card-gallery item item-text-wrap" >
+                    <div on-tap="saveStat({{article.idArticle}})" ui-sref="app.articledetails({article:'{{article.idArticle}}'})" class="ink dark-bg" >
+                        <h2>{{article.titre}}</h2>
+                        <img  class="full-image" ng-src="{{url}}{{cheminImage}}{{article.images[0].cheminImage}}">
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item  ">
+                            <span class="price assertive">{{article.prix}} FCFA</span>
+                        </a>
+                        <a class="tab-item  positive-900">
+                            <i class="icon ion-eye"></i>
+                            <b>{{article.nombreDeVue}}</b>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="list half" >
+                <div  ng-repeat="article in articles.slice(0,(articles.length/2))"   ng-controller="ArticlesController" class="card card-gallery item item-text-wrap" >
+                    <div on-tap="saveStat({{article.idArticle}})" ui-sref="app.articledetails({article:'{{article.idArticle}}'})" class="ink dark-bg" >
+                        <h2>{{article.titre}}</h2>
+                        <img  class="full-image" ng-src="{{url}}{{cheminImage}}{{article.images[0].cheminImage}}">
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item  ">
+                            <span class="price assertive">{{article.prix}} FCFA</span>
+                        </a>
+                        <a class="tab-item  positive-900">
+                            <i class="icon ion-eye"></i>
+                            <b>{{article.nombreDeVue}}</b>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="list half" >
+                <div  ng-repeat="article in articles.slice((articles.length/2),articles.length)"  ng-controller="ArticlesController"  class="card card-gallery item item-text-wrap">
+                    <div on-tap="saveStat({{article.idArticle}})"ui-sref="app.articledetails({article:'{{article.idArticle}}'})" class="ink dark-bg ">
+                        <h2>{{article.titre}}</h2>
+                        <img  class="full-image" ng-src="{{url}}{{cheminImage}}{{article.images[0].cheminImage}}">
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item  ">
+                            <span class="price assertive">{{article.prix}} FCFA</span>
+                        </a>
+                        <a class="tab-item positive-900 ">
+                            <i class="icon ion-eye"></i>
+                            <b>{{article.nombreDeVue}}</b>
+                        </a>
+                    </div>
+                </div>
+            </div>-->
+        </ion-list>
+    </ion-content>
+    <a ui-sref="app.addarticle">
+        <md-button class="md-warn md-raised md-hue-2 md-fab md-fab-bottom-right ion-plus-round">
+        </md-button>
+    </a>
+</ion-view>

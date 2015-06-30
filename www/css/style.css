@@ -1,0 +1,374 @@
+/* Empty. Add your own CSS if you like */
+.item .list
+{
+    background-color: #323A43;
+}
+/* General
+==================================*/
+h1 {
+    color: #fff;
+    text-shadow: 0 1px 0px #000;
+    font-size: 42px;
+}
+
+
+/* Utilities
+==================================*/
+.title-bordered {
+    border-top: solid 2px #bbb;
+    padding-top: 30px;
+}
+
+p {
+    color: #555;
+    margin: 0 0 25px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+
+/* Menu
+==================================*/
+.menu .bar.bar-header.expanded {
+    transition: all .5s ease-in-out;
+}
+
+.menu-open .bar.bar-header.expanded {
+    background-color: #222;
+}
+
+.menu h2 {
+    bottom: 0;
+    font-size: 18px;
+    left: 16px;
+    position: absolute;
+}
+
+.menu .avatar {
+    height: 88px;
+    width: 88px;
+}
+
+.menu.menu-left * {
+    font-weight: bold;
+}
+
+.menu-open .ion-navicon {
+    transform: rotate(-360deg);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-open .ion-navicon:before {
+    content: "\f2ca";
+}
+
+
+/* Login
+==================================*/
+.app-icon {
+    background-color: #fff;
+    background: url('../img/crown.jpg') center;
+    background-size: cover;
+    border-radius: 50%;
+    height: 125px;
+    margin: 0 auto;
+    width: 125px;
+}
+
+.social-login {
+    position: fixed;
+    bottom: 0;
+}
+
+/*Article
+==================================*/
+
+.noArticle
+{
+    background: url(../img/login.jpg) center; background-size: cover;
+
+}
+
+.italic{
+    font-style : italic;
+}
+
+.price
+{
+   font-size: 12px;
+   font-weight: bold;
+  color: #B71C1C;
+}
+
+/*Details article*/
+.price-details
+{
+    text-align: left;
+}
+.image{
+    width: 100%
+}
+.article-body{
+    background-color: #E8E8E8 ;
+}
+.article{
+    border: solid 0.2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 16px;
+    background-color:#F8F8F8;
+}
+.titre-article{
+    font-weight: bold;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.desc-article{
+
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+
+/* Center */
+.middle-text-page {
+    height: 200px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+
+
+/*ribbon  product*/
+/*!
+ * "Fork me on GitHub" CSS ribbon v0.1.1 | MIT License
+ * https://github.com/simonwhitaker/github-fork-ribbon-css
+*/
+
+/* Left will inherit from right (so we don't need to duplicate code) */
+.github-fork-ribbon {
+    /* The right and left classes determine the side we attach our banner to */
+    position: absolute;
+
+    /* Add a bit of padding to give some substance outside the "stitching" */
+    padding: 2px 0;
+
+    /* Set the base colour */
+    background-color: #a00;
+
+    /* Set a gradient: transparent black at the top to almost-transparent black at the bottom */
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+
+    /* Add a drop shadow */
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+
+    /* Set the font */
+    font: 700 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    z-index: 9999;
+    pointer-events: auto;
+}
+
+.github-fork-ribbon a,
+.github-fork-ribbon a:hover {
+    /* Set the text properties */
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+    /* Set the geometry. If you fiddle with these you'll also need
+       to tweak the top and right values in .github-fork-ribbon. */
+    width: 200px;
+    line-height: 20px;
+
+    /* Set the layout properties */
+    display: inline-block;
+    padding: 2px 0;
+
+    /* Add "stitching" effect */
+    border-width: 1px 0;
+    border-style: dotted;
+    border-color: #fff;
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.github-fork-ribbon-wrapper {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.github-fork-ribbon-wrapper.fixed {
+    position: fixed;
+}
+
+.github-fork-ribbon-wrapper.left {
+    left: 0;
+}
+
+.github-fork-ribbon-wrapper.right {
+    right: 0;
+}
+
+.github-fork-ribbon-wrapper.left-bottom {
+    position: fixed;
+    top: inherit;
+    bottom: 0;
+    left: 0;
+}
+
+.github-fork-ribbon-wrapper.right-bottom {
+    position: fixed;
+    top: inherit;
+    bottom: 0;
+    right: 0;
+}
+
+.github-fork-ribbon-wrapper.right .github-fork-ribbon {
+    top: 42px;
+    right: -43px;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.github-fork-ribbon-wrapper.left .github-fork-ribbon {
+    top: 42px;
+    left: -43px;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+
+.github-fork-ribbon-wrapper.left-bottom .github-fork-ribbon {
+    top: 80px;
+    left: -43px;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.github-fork-ribbon-wrapper.right-bottom .github-fork-ribbon {
+    top: 80px;
+    right: -43px;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.ribbon-banner {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: -120px;
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    opacity: 0.7;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform:    rotate(-45deg);
+    -ms-transform:     rotate(-45deg);
+    transform:         rotate(-45deg);
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    background-color: red;
+    border: 1px solid white;
+    z-index: 500;
+}
+
+
+/*Status Bar*/
+.platform-ios.has-translucent-status-bar .app-header-bar{
+    padding-top:25px;
+}
+
+.platform-android.has-translucent-status-bar .app-header-bar{
+    margin-top:7px;
+}
+
+/*zoom image*/
+.modal .scroll {
+    height: 100% !important;
+    background-color: black !important;
+
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+
+    -webkit-box-direction: normal !important;
+    -moz-box-direction: normal !important;
+    -webkit-box-orient: horizontal !important;
+    -moz-box-orient: horizontal !important;
+    -webkit-flex-direction: row !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+
+
+    -webkit-box-align: center !important;
+    -moz-box-align: center !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+
+}
+
+/*Middle of screen*/
+.middle {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+}
+
+/*Colord mdToast*/
+.md-toast.error {
+    background-color: red;
+}
+.md-toast.success {
+    background-color: green;
+}
+
+
+.btnlowercase {
+    text-transform: lowercase;
+}

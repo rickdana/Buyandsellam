@@ -1,0 +1,88 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'ngStorage' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json bizbizclient@1.0.0 No repository field.
+6 warn package.json bizbizclient@1.0.0 No README data
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'ngStorage', null ]
+9 verbose cache add name=undefined spec="ngStorage" args=["ngStorage",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'ngStorage',
+10 verbose parsed url   path: 'ngStorage',
+10 verbose parsed url   href: 'ngStorage' }
+11 silly lockFile d372c7e0-ngStorage ngStorage
+12 verbose lock ngStorage C:\Users\fleundeu\AppData\Roaming\npm-cache\d372c7e0-ngStorage.lock
+13 silly lockFile d372c7e0-ngStorage ngStorage
+14 silly lockFile d372c7e0-ngStorage ngStorage
+15 verbose addNamed [ 'ngStorage', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile 219aff1d-ngStorage ngStorage@
+18 verbose lock ngStorage@ C:\Users\fleundeu\AppData\Roaming\npm-cache\219aff1d-ngStorage.lock
+19 silly addNameRange { name: 'ngStorage', range: '*', hasData: false }
+20 verbose request where is /ngStorage
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id 21737d57b7e6eab6
+23 verbose url raw /ngStorage
+24 verbose url resolving [ 'https://registry.npmjs.org/', './ngStorage' ]
+25 verbose url resolved https://registry.npmjs.org/ngStorage
+26 verbose request where is https://registry.npmjs.org/ngStorage
+27 info trying registry request attempt 1 at 21:03:44
+28 http GET https://registry.npmjs.org/ngStorage
+29 http 404 https://registry.npmjs.org/ngStorage
+30 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+30 verbose headers   'content-type': 'application/json',
+30 verbose headers   'cache-control': 'max-age=0',
+30 verbose headers   'content-length': '51',
+30 verbose headers   'accept-ranges': 'bytes',
+30 verbose headers   date: 'Tue, 16 Jun 2015 19:03:46 GMT',
+30 verbose headers   via: '1.1 varnish',
+30 verbose headers   age: '0',
+30 verbose headers   connection: 'keep-alive',
+30 verbose headers   'x-served-by': 'cache-ams4127-AMS',
+30 verbose headers   'x-cache': 'MISS',
+30 verbose headers   'x-cache-hits': '0',
+30 verbose headers   'x-timer': 'S1434481426.841112,VS0,VE97' }
+31 silly registry.get cb [ 404,
+31 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 silly registry.get     'content-type': 'application/json',
+31 silly registry.get     'cache-control': 'max-age=0',
+31 silly registry.get     'content-length': '51',
+31 silly registry.get     'accept-ranges': 'bytes',
+31 silly registry.get     date: 'Tue, 16 Jun 2015 19:03:46 GMT',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     age: '0',
+31 silly registry.get     connection: 'keep-alive',
+31 silly registry.get     'x-served-by': 'cache-ams4127-AMS',
+31 silly registry.get     'x-cache': 'MISS',
+31 silly registry.get     'x-cache-hits': '0',
+31 silly registry.get     'x-timer': 'S1434481426.841112,VS0,VE97' } ]
+32 silly lockFile 219aff1d-ngStorage ngStorage@
+33 silly lockFile 219aff1d-ngStorage ngStorage@
+34 error 404 404 Not Found: ngStorage
+34 error 404
+34 error 404 'ngStorage' is not in the npm registry.
+34 error 404 You should bug the author to publish it
+34 error 404 It was specified as a dependency of 'bizbizclient'
+34 error 404
+34 error 404 Note that you can also install from a
+34 error 404 tarball, folder, or http url, or git url.
+35 error System Windows_NT 6.1.7601
+36 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ngStorage"
+37 error cwd C:\Users\fleundeu\BizBiz\BizBizClient
+38 error node -v v0.10.33
+39 error npm -v 1.4.28
+40 error code E404
+41 verbose exit [ 1, true ]

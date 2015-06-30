@@ -1,0 +1,99 @@
+<ion-view view-title="Buyandsellam" >
+    <ion-content ng-class="{expanded:$scope.isExpanded}" class=" animate-fade-slide-in"  ng-controller="UtilisateurController">
+            <md-content class="md-padding" >
+                <md-tabs  md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                    <md-tab label="Se connecter" >
+                        <md-content class="">
+                            <section layout="row" layout-sm="column" layout-align="center center">
+                                <md-button class="md-raised md-primary md-hue-2 button button-full ink"><i class="icon ion-social-facebook " ng-click="loggedWithFacebook()"></i>  Se connecter avec Facebook</md-button>
+                            </section>
+                            <section layout="row" layout-sm="column" layout-align="center center">
+                                <md-button  class="md-raised md-warn button button-full ink" ng-click="loggedWithGoogle()"><i class="icon ion-social-googleplus" ></i>  Se connecter avec Gmail</md-button>
+                            </section>
+                        </md-content>
+                        <md-divider></md-divider>
+                        <md-content layout-padding >
+                            <form name="loginForm" ng-submit="doLogin(credentials)">
+                                <md-input-container>
+                                    <label>Email</label>
+                                    <input  ng-model="credentials.email" required  type="email"/>
+                                </md-input-container>
+                                <md-input-container >
+                                    <label>Mot de passe</label>
+                                    <input  ng-model="credentials.motdepasse"  required type="password"/>
+                                </md-input-container>
+                                <section layout="row" layout-sm="column" layout-align="center center">
+                                    <md-button class="md-warn md-raised md-hue-2 button button-full button-assertive-900  ink">Se connecter</md-button>
+                                </section>
+                                <section layout="row" layout-sm="column" layout-align="right right">
+                                    <a ng-click="showPopup()" class="button button-clear button-positive btnlowercase ink">Mot de passe oublié</a>
+                                </section>
+                            </form>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="S'inscrire" >
+                        <md-content class="md-padding">
+                            <section layout="row" layout-sm="column" layout-align="center center">
+                                <md-button class="md-raised md-primary md-hue-2 button button-full ink"><i class="icon ion-social-facebook "></i>  S'inscrire avec Facebook</md-button>
+                            </section>
+
+                            <section layout="row" layout-sm="column" layout-align="center center">
+                                <md-button class="md-raised md-warn button button-full ink"><i class="icon ion-social-googleplus"></i>  S'inscrire avec Gmail</md-button>
+                            </section>
+                        </md-content>
+                        <md-divider></md-divider>
+                        <md-content layout-padding>
+                            <form name="inscriptionForm" ng-submit="doInscription(utilisateur)">
+                                <md-input-container >
+                                    <label>Nom</label>
+                                    <input ng-model="utilisateur.nom"  name="nom"  required>
+                                </md-input-container>
+                                <md-input-container >
+                                    <label>Prenom</label>
+                                    <input ng-model="utilisateur.prenom"   name="prenom"  required>
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>Date de naissance</label>
+                                    <input type="date" ng-model="utilisateur.datenaissance"   name="datenaissance"  required>
+                                </md-input-container>
+                                <md-input-container >
+                                    <label>Email</label>
+                                    <input ng-model="utilisateur.email" name="email" type="email" required>
+                                </md-input-container>
+                                <md-input-container >
+                                    <label>Mot de passe</label>
+                                    <input ng-model="utilisateur.motdepasse" name="motdepasse"  type="password" required>
+
+                                </md-input-container>
+                                <section layout="row" layout-sm="column" layout-align="center center" >
+                                    <md-button class="md-warn md-raised md-hue-2 button button-full button-assertive-900 ink" >S'inscrire</md-button>
+                                </section>
+                            </form>
+                        </md-content>
+                    </md-tab>
+
+                </md-tabs>
+            </md-content>
+    </ion-content>
+</ion-view>
+<script type="text/ng-template" id="motdepasseoublie.html">
+    <ion-popover-view>
+            <form>
+                <md-input-container flex>
+                    <label>Votre adresse email</label>
+                    <input ng-model="email" type="email"/>
+                </md-input-container>
+
+                <div >
+                    <md-button ng-click="recuperermotdepasse('{{email}}')" class="md-primary">
+                        Envoyer
+                    </md-button>
+                </div>
+                <div >
+                    <md-button ng-click="hide()" class="md-primary" style="float: right">
+                        Annuler
+                    </md-button>
+                </div>
+            </form>
+    </ion-popover-view>
+</script>
