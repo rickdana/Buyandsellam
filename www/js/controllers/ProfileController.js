@@ -49,9 +49,9 @@ angular.module('BuyAndSellam.controllers')
                // alert(JSON.stringify(result.articles));
 
                 $scope.articles=result.articles;
-                ArticlesService.getArticleVenduByUser(response.utilisateur.id).then(function(articles){
+                ArticlesService.getArticleVenduByUser(response.utilisateur.id).then(function(result){
                     $ionicLoading.hide();
-                    $scope.articlesvendu=articles;
+                    $scope.articlesvendu=result.articles;
                 })
             })
 
