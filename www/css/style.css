@@ -152,7 +152,7 @@ p {
 */
 
 /* Left will inherit from right (so we don't need to duplicate code) */
-.github-fork-ribbon {
+.ruban-article-vendu {
     /* The right and left classes determine the side we attach our banner to */
     position: absolute;
 
@@ -182,8 +182,8 @@ p {
     pointer-events: auto;
 }
 
-.github-fork-ribbon a,
-.github-fork-ribbon a:hover {
+.ruban-article-vendu a,
+.ruban-article-vendu a:hover {
     /* Set the text properties */
     color: #fff;
     text-decoration: none;
@@ -206,7 +206,7 @@ p {
     border-color: rgba(255, 255, 255, 0.7);
 }
 
-.github-fork-ribbon-wrapper {
+.ruban-article-vendu-wrapper {
     width: 150px;
     height: 150px;
     position: absolute;
@@ -216,33 +216,33 @@ p {
     pointer-events: none;
 }
 
-.github-fork-ribbon-wrapper.fixed {
+.ruban-article-vendu-wrapper.fixed {
     position: fixed;
 }
 
-.github-fork-ribbon-wrapper.left {
+.ruban-article-vendu-wrapper.left {
     left: 0;
 }
 
-.github-fork-ribbon-wrapper.right {
+.ruban-article-vendu-wrapper.right {
     right: 0;
 }
 
-.github-fork-ribbon-wrapper.left-bottom {
+.ruban-article-vendu-wrapper.left-bottom {
     position: fixed;
     top: inherit;
     bottom: 0;
     left: 0;
 }
 
-.github-fork-ribbon-wrapper.right-bottom {
+.ruban-article-vendu-wrapper.right-bottom {
     position: fixed;
     top: inherit;
     bottom: 0;
     right: 0;
 }
 
-.github-fork-ribbon-wrapper.right .github-fork-ribbon {
+.ruban-article-vendu-wrapper.right .github-fork-ribbon {
     top: 42px;
     right: -43px;
 
@@ -253,7 +253,7 @@ p {
     transform: rotate(45deg);
 }
 
-.github-fork-ribbon-wrapper.left .github-fork-ribbon {
+.ruban-article-vendu-wrapper.left .github-fork-ribbon {
     top: 42px;
     left: -43px;
 
@@ -265,7 +265,7 @@ p {
 }
 
 
-.github-fork-ribbon-wrapper.left-bottom .github-fork-ribbon {
+.ruban-article-vendu-wrapper.left-bottom .github-fork-ribbon {
     top: 80px;
     left: -43px;
 
@@ -276,7 +276,7 @@ p {
     transform: rotate(45deg);
 }
 
-.github-fork-ribbon-wrapper.right-bottom .github-fork-ribbon {
+.ruban-article-vendu-wrapper.right-bottom .github-fork-ribbon {
     top: 80px;
     right: -43px;
 
