@@ -60,6 +60,9 @@ angular.module('BuyAndSellam.controllers')
 
         $scope.doInscription=function(utilisateur)
         {
+            $ionicLoading.show({
+                template: '<md-progress-circular class="md-raised md-warn" md-mode="indeterminate"></md-progress-circular>'
+            })
            /* alert("doInscription");
             var onSuccess = function(position) {
                 alert("onSuccess");
@@ -75,6 +78,7 @@ angular.module('BuyAndSellam.controllers')
                     prenom:utilisateur.prenom,
                     dateDeNaissance:utilisateur.datenaissance,
                     telephone:data['lineNumber'],
+                    sexe:utilisateur.sexe,
                     /* nomville:response.results[0].address_components[2].short_name,
                      nompays:response.results[0].address_components[5].long_name,*/
                     device:  $cordovaDevice.getDevice().manufacturer+" "+$cordovaDevice.getModel(),
@@ -82,9 +86,18 @@ angular.module('BuyAndSellam.controllers')
                 };
                 UtilisateursService.signup(formData).then(function(res) {
                     if (res.success) {
-                        $scope.logged= window.localStorage.getItem("logged");
-                        $scope.userLogged=window.localStorage.getItem(Globals.USER_LOGGED);
-                        $state.go('app.articles');
+                        $ionicLoading.hide();
+                        $scope.logged=$localStorage['logged'];
+                        $scope.infoUserLogged=$localStorage[Globals.USER_LOGGED];
+                        $ionicHistory.nextViewOptions({
+                            disableAnimate:true,
+                            disableBack: true
+                        });
+                        $state.transitionTo('app.articles', $stateParams, {
+                            reload: true,
+                            inherit: true,
+                            notify: true
+                        });
                         $mdToast.show({
                             template: '<md-toast class="md-toast success">' + Messages.welcome + '</md-toast>',
                             hideDelay: 10000,
@@ -92,6 +105,8 @@ angular.module('BuyAndSellam.controllers')
                         });
 
                     } else {
+                        $ionicLoading.hide();
+
                         $mdToast.show({
                             template: '<md-toast class="md-toast error">' + Messages.inscriptionFailed + '</md-toast>',
                             hideDelay: 20000,
@@ -99,6 +114,7 @@ angular.module('BuyAndSellam.controllers')
                         });
                     }
                 }, function(err) {
+                    $ionicLoading.hide();
                     $mdToast.show({
                         template: '<md-toast class="md-toast error">' + Messages.inscriptionFailed + '</md-toast>',
                         hideDelay: 20000,
@@ -107,9 +123,15 @@ angular.module('BuyAndSellam.controllers')
                 });
 
             };
-            var err=function()
+            var err=function(err)
             {
-                console.log("erreur lors dela recuperation du numéro de téléphone");
+                $ionicLoading.hide();
+                $mdToast.show({
+                    template: '<md-toast class="md-toast error">' + Messages.inscriptionFailed + '</md-toast>',
+                    hideDelay: 20000,
+                    position: 'bottom right left'
+                });
+                console.error("erreur lors dela recuperation du numéro de téléphone "+err);
 
             }
 
