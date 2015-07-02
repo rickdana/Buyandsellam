@@ -4,51 +4,56 @@
     </ion-nav-buttons>
     <ion-content  ng-controller="ProfileController"   class=" animate-fade-slide-in">
         <md-content layout-padding>
-            <form >
+            <div class="card">
+                <div layout layout-sm="row" ng-click="editPhoto(null,$event)">
+                    <md-input-container  flex flex>
+                        <label>Modifier l'image</label>
+                    </md-input-container>
+                    <md-input-container flex flex >
+                        <img width="65px" height="65px"  class="circle" ng-src="{{url}}{{cheminPhoto}}{{infoUserLogged.photo.cheminPhoto}}">
+                    </md-input-container>
+                </div>
+            </div>
+            <form ng-submit="editUser(user)" >
                 <div class="card">
-                    <div layout layout-sm="row" ng-click="editPhoto(null,$event)">
-                        <md-input-container flex>
-                            <label>Modifier l'image</label>
-                        </md-input-container>
-                        <md-input-container flex>
-                             <img width="65px" height="65px"  class="circle" ng-src="{{url}}{{cheminPhoto}}{{infoUserLogged.photo.cheminPhoto}}">
-                        </md-input-container>
-                    </div>
+
                     <div layout layout-sm="column">
                         <md-input-container flex>
                             <label>Prénom</label>
-                            <input type="text" ng-model="prenom">
+                            <input type="text" ng-model="user.prenom">
                         </md-input-container>
                     </div>
                     <div layout layout-sm="column">
                         <md-input-container flex>
                         <label>Nom</label>
-                        <input type="text" ng-model="nom">
+                        <input type="text" ng-model="user.nom">
                         </md-input-container>
                     </div>
                     <div layout layout-sm="column">
                         <md-input-container flex>
                             <label>Date de naissance</label>
-                          <input  ng-model="datedenaissance">
+                          <input  ng-model="user.datedenaissance">
                         </md-input-container>
                      </div>
                     <div layout layout-sm="column">
                         <md-input-container flex>
-                            <md-radio-group ng-model="sexe" layout="row">
-                                <md-radio-button  value="1" class="md-warn md-raised md-hue-2" ng-checked="sexe">Homme</md-radio-button>
-                                <md-radio-button value="2" class="md-warn md-raised md-hue-2"ng-checked="sexe">Femme</md-radio-button>
+                            <md-radio-group ng-model="user.sexe" layout="row">
+                                <md-radio-button  value="1" class="md-warn md-raised md-hue-2" ng-checked="user.sexe">Homme</md-radio-button>
+                                <md-radio-button value="2" class="md-warn md-raised md-hue-2"ng-checked="user.sexe">Femme</md-radio-button>
 
                             </md-radio-group>
                         </md-input-container>
                     </div>
                 </div>
+            <md-button class="md-warn md-raised md-hue-2 md-fab md-fab-bottom-right ion-checkmark"   type="submit">
+            </md-button>
             </form>
         </md-content>
     </ion-content>
-    <a ui-sref="app.addarticle">
+    <!--<a ui-sref="app.addarticle">
         <md-button class="md-warn md-raised md-hue-2 md-fab md-fab-bottom-right ion-checkmark">
         </md-button>
-    </a>
+    </a>-->
 </ion-view>
 <script type="text/ng-template" id="editPhoto.html">
     <md-dialog >
