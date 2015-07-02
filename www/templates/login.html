@@ -44,6 +44,7 @@
                         <md-divider></md-divider>
                         <md-content layout-padding>
                             <form name="inscriptionForm" ng-submit="doInscription(utilisateur)">
+
                                 <md-input-container >
                                     <label>Nom</label>
                                     <input ng-model="utilisateur.nom"  name="nom"  required>
@@ -63,8 +64,13 @@
                                 <md-input-container >
                                     <label>Mot de passe</label>
                                     <input ng-model="utilisateur.motdepasse" name="motdepasse"  type="password" required>
-
                                 </md-input-container>
+                                <md-input-container >
+                                    <md-radio-group ng-model="utilisateur.sexe"  name="sexe" layout="row">
+                                        <md-radio-button value="1" class="md-warn md-raised md-hue-2" name="sexe">Homme</md-radio-button>
+                                        <md-radio-button value="2" class="md-warn md-raised md-hue-2" name="sexe">Femme</md-radio-button>
+                                    </md-radio-group>
+                                 </md-input-container>
                                 <section layout="row" layout-sm="column" layout-align="center center" >
                                     <md-button class="md-warn md-raised md-hue-2 button button-full button-assertive-900 ink" >S'inscrire</md-button>
                                 </section>
