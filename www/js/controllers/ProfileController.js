@@ -46,7 +46,6 @@ angular.module('BuyAndSellam.controllers')
             UtilisateursService.getUtilisateurById(utilisateur).then(function(response){
                 $scope.utilisateur=response.utilisateur;
 
-                //alert(response.utilisateur.id);
                 ArticlesService.getArticlesByUser(response.utilisateur.id).then(function(result){
                     // alert(JSON.stringify(result.articles));
 
