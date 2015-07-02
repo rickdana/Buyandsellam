@@ -1,0 +1,74 @@
+<ion-view view-title="Modifier le profil">
+    <ion-nav-buttons side="right">
+
+    </ion-nav-buttons>
+    <ion-content  ng-controller="ProfileController"   class=" animate-fade-slide-in">
+        <md-content layout-padding>
+            <form >
+                <div class="card">
+                    <div layout layout-sm="row" ng-click="editPhoto(null,$event)">
+                        <md-input-container flex>
+                            <label>Modifier l'image</label>
+                        </md-input-container>
+                        <md-input-container flex>
+                             <img width="65px" height="65px"  class="circle" ng-src="{{url}}{{cheminPhoto}}{{infoUserLogged.photo.cheminPhoto}}">
+                        </md-input-container>
+                    </div>
+                    <div layout layout-sm="column">
+                        <md-input-container flex>
+                            <label>Prénom</label>
+                            <input type="text" ng-model="prenom">
+                        </md-input-container>
+                    </div>
+                    <div layout layout-sm="column">
+                        <md-input-container flex>
+                        <label>Nom</label>
+                        <input type="text" ng-model="nom">
+                        </md-input-container>
+                    </div>
+                    <div layout layout-sm="column">
+                        <md-input-container flex>
+                            <label>Date de naissance</label>
+                          <input  ng-model="datedenaissance">
+                        </md-input-container>
+                     </div>
+                    <div layout layout-sm="column">
+                        <md-input-container flex>
+                            <md-radio-group ng-model="sexe" layout="row">
+                                <md-radio-button  value="1" class="md-warn md-raised md-hue-2" ng-checked="sexe">Homme</md-radio-button>
+                                <md-radio-button value="2" class="md-warn md-raised md-hue-2"ng-checked="sexe">Femme</md-radio-button>
+
+                            </md-radio-group>
+                        </md-input-container>
+                    </div>
+                </div>
+            </form>
+        </md-content>
+    </ion-content>
+    <a ui-sref="app.addarticle">
+        <md-button class="md-warn md-raised md-hue-2 md-fab md-fab-bottom-right ion-checkmark">
+        </md-button>
+    </a>
+</ion-view>
+<script type="text/ng-template" id="editPhoto.html">
+    <md-dialog >
+        <md-dialog-content class="sticky-container" ng-controller="ProfileController">
+            <md-subheader class="assertive-900">Choisir une photo depuis...</md-subheader>
+            <div >
+                <md-button ng-click="answer('gallerie')" class="md-primary">
+                    Galerie
+                </md-button>
+            </div>
+            <div >
+                <md-button ng-click="answer('photo')" class="md-primary">
+                    Appareil photo
+                </md-button>
+            </div>
+            <div >
+                <md-button ng-click="closeDialog()" class="md-primary" style="float: right">
+                    Annuler
+                </md-button>
+            </div>
+        </md-dialog-content>
+    </md-dialog>
+</script>
