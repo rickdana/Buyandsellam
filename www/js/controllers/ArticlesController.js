@@ -113,7 +113,7 @@ angular.module('BuyAndSellam.controllers')
              alert("Article "+JSON.stringify(article));
             $ionicLoading.show({
                 template: '<md-progress-circular  md-mode="indeterminate"></md-progress-circular> '+Messages.ajoutDuProduitEnCours
-            })
+            });
             $http.get(Globals.URL_JSON_IP).success(function(dataIP){
                //On recupère la position à partir de laquelle est ajouté l'article
                 alert("dataIP "+JSON.stringify(dataIP));
