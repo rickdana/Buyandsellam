@@ -119,6 +119,16 @@ angular.module('BuyAndSellam', ['ionic','BuyAndSellam.controllers','BuyAndSellam
           },
           requiresLogin:false
       })
+      .state('app.editProfile',{
+          url:"/editprofile/:utilisateur",
+          views:{
+              'menuContent':{
+                  templateUrl:"templates/editerProfil.html",
+                  controller:'ProfileController'
+              }
+          },
+          requiresLogin:true
+      })
     .state('app.articles', {
       cache:false,
       url: "/articles",
