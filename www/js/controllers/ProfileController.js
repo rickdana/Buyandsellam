@@ -2,15 +2,17 @@
  * Created by fleundeu on 01/05/2015.
  */
 angular.module('BuyAndSellam.controllers')
-    .controller('ProfileController', function($scope,$stateParams,$state,$http,$timeout,UtilisateursService,Globals,$ionicLoading,$ionicPlatform, $mdDialog,ArticlesService,$localStorage) {
+    .controller('ProfileController', function($scope,$stateParams,$state,$http,$timeout,UtilisateursService,Globals,$ionicLoading,$ionicPlatform,Messages, $mdDialog,ArticlesService,$localStorage) {
 
 
         // Set Header
         //$scope.$parent.showHeader();
        // $scope.$parent.clearFabs();
         $scope.isExpanded = false;
-       /* $scope.$parent.setExpanded(false);
-        $scope.$parent.setHeaderFab(false);*/
+        var user={};
+
+        /* $scope.$parent.setExpanded(false);
+         $scope.$parent.setHeaderFab(false);*/
 
         // Set Motion
         $timeout(function() {
@@ -56,7 +58,7 @@ angular.module('BuyAndSellam.controllers')
                     })
                 })
 
-            })
+            });
 
             $timeout(function() {
                 $ionicLoading.hide();
@@ -70,11 +72,46 @@ angular.module('BuyAndSellam.controllers')
         if($state.current.name=='app.editProfile')
         {
             //Si oui on lieu de faire une nouvelle requete en base on recupère directement les informations depuis le localstorage
-            $scope.nom=$scope.infoUserLogged.nom;
-            $scope.prenom=$scope.infoUserLogged.prenom;
-            $scope.datedenaissance=$scope.infoUserLogged.dateDeNaissance;
-            $scope.sexe=$scope.infoUserLogged.sexe;
+            user.id=$scope.infoUserLogged.id;
+            user.nom=$scope.infoUserLogged.nom;
+            user.prenom=$scope.infoUserLogged.prenom;
+            user.datedenaissance=$scope.infoUserLogged.dateDeNaissance;
+            user.sexe=$scope.infoUserLogged.sexe;
+            $scope.user=user;
 
+            $scope.editUser=function(user)
+            {
+                $ionicLoading.show({
+                    template: '<md-progress-circular class="md-raised md-warn" md-mode="indeterminate"></md-progress-circular>'
+                })
+                UtilisateursService.editUtilisateur(user).then(function(response) {
+
+
+                    $localStorage[Globals.USER_LOGGED].nom=response.utilisateur.nom;
+                    $localStorage[Globals.USER_LOGGED].prenom=response.utilisateur.prenom;
+                    $localStorage[Globals.USER_LOGGED].dateDeNaissance=response.utilisateur.dateDeNaissance;
+                    $localStorage[Globals.USER_LOGGED].sexe=response.utilisateur.sexe;
+                    $localStorage[Globals.USER_LOGGED].photo=response.utilisateur.photo;
+                    $scope.infoUserLogged.nom=response.utilisateur.nom;
+                    $scope.infoUserLogged.prenom=response.utilisateur.prenom;
+                    $scope.infoUserLogged.dateDeNaissance=response.utilisateur.dateDeNaissance;
+                    $scope.infoUserLogged.sexe=response.utilisateur.sexe;
+                    $scope.infoUserLogged.photo=response.utilisateur.photo;
+                    $scope.infoUserLogged.id=response.utilisateur.id;
+
+                    $scope.$apply();
+                    $ionicLoading.hide();
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                            .parent(angular.element(document.body))
+                            .title(Messages.miseAjoutProfilTitre)
+                            .content(Messages.misAJourProfilSuccess)
+                            .ok('Ok')
+                    );
+
+                })
+
+            };
             $scope.editPhoto=function(key,event)
             {
                 $mdDialog.show({
@@ -185,7 +222,7 @@ angular.module('BuyAndSellam.controllers')
                     $mdDialog.hide(answer);
                 };
 
-            }
+            };
 
 
         }
