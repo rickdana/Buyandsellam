@@ -127,6 +127,30 @@ angular.module('BuyAndSellam.services')
             return isAuthenticated;
         };
 
+        this.editUtilisateur=function(utilisateur)
+        {
+            var deferred=$q.defer();
+            var req={
+                method:'POST',
+                url:baseUrl+'/utilisateur/updateUtilisateurP',
+                data:utilisateur
+            }
+            $http(req).success(function(response){
+                if(response)
+                {
+                    $localStorage[Globals.LOCAL_TOKEN_KEY]=response.utilisateur.token;
+                    $localStorage[Globals.USER_LOGGED]=response.utilisateur;
+                    $localStorage['logged']=true;
+                    deferred.resolve(response);
+                }
+
+            }).error(function(error){
+                messageAuthErreur="Une erreur est survenue durant votre inscription";
+                deferred.reject(error);
+            })
+            return deferred.promise;
+        }
+
 
 }).config(function($httpProvider,Globals){
     $httpProvider.interceptors.push(function($q, $location,$localStorage) {
