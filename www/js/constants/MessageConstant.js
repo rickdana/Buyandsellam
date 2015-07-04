@@ -13,5 +13,7 @@ angular.module('BuyAndSellam.constants')
         "deconnexion":"Vous n'êtes plus connecté",
         "erreurAjoutArticle":'Une erreur a été rencontré lors de la création de votre produit. Veuillez reessayer ulterieurement',
         "erreurAjoutArticleTitre":"Ajout d\'un produit",
-        "ajoutDuProduitEnCours":"Ajout de votre produit"
+        "ajoutDuProduitEnCours":"Ajout de votre produit",
+        "misAJourProfilSuccess":"Votre profil a été mis à jour",
+        "miseAjoutProfilTitre":"Profil"
     });
