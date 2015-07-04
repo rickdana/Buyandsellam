@@ -372,3 +372,7 @@ p {
 .btnlowercase {
     text-transform: lowercase;
 }
+
+.no-text-transform {
+    text-transform: none;
+}
